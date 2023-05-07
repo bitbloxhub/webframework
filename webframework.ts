@@ -122,8 +122,10 @@ export class App {
 			let respassed = res
 			for (const middleware of realmiddlewares) {
 				const middlewareout = await middleware.post(respassed, ctx)
-				// TODO: final
 				respassed = middlewareout.output
+				if (middlewareout.final) {
+					break
+				}
 			}
 			return respassed
 		}, this.serveinit)
