@@ -6,12 +6,12 @@ async function middleware(): Promise<webframework.Middleware> {
 	return {
 		data: null,
 		name: "example",
-		pre: async (req: Request, ctx: ConnInfo) => {
+		pre: async (req: Request, _ctx: ConnInfo) => {
 			return {
 				output: req,
 			}
 		},
-		post: async (res: Response, ctx: ConnInfo) => {
+		post: async (res: Response, _ctx: ConnInfo) => {
 			return {
 				output: new Response(res.body, {
 					headers: {

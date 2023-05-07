@@ -7,5 +7,12 @@
 			"esbuild_out"
 		]
 	},
+	"lint": {
+		"rules": {
+			"exclude": [
+				"require-await"
+			]
+		}
+	},
 	"lock": false
 }
