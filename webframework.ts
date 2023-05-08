@@ -132,10 +132,12 @@ export class App {
 	}
 }
 
-export function responseHeaders(res: Response): Record<string, string> {
+export function responseHeaders(res: Response, skip?: Set<string>): Record<string, string> {
 	const out: Record<string, string> = {}
 	for (const [header, value] of res.headers) {
-		out[header] = value
+		if (!skip?.has(header)) {
+			out[header] = value
+		}
 	}
 	return out
 }

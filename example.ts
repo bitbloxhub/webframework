@@ -98,6 +98,8 @@ const app: webframework.App = new webframework.App({
 		minify: true,
 		splitting: true,
 		format: "esm",
+		platform: "browser",
+		target: ["chrome100"],
 	},
 	servinit: {
 		port: 8909,
