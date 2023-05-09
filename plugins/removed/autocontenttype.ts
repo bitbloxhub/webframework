@@ -1,6 +1,6 @@
 import { extname } from "https://deno.land/std@0.186.0/path/mod.ts"
 import { contentType } from "https://deno.land/std@0.186.0/media_types/mod.ts"
-import * as webframework from "../webframework.ts"
+import * as webframework from "../../webframework.ts"
 
 async function middleware(): Promise<webframework.Middleware> {
 	return {
