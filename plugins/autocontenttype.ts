@@ -12,11 +12,14 @@ async function middleware(): Promise<webframework.Middleware> {
 			}
 		},
 		post: async (res: Response) => {
-			if (res.headers.get("Content-Type") == "text/plain;charset=UTF-8" && res.headers.get("Autocontenttype-Skip") == undefined) {
+			if (
+				res.headers.get("Content-Type") == "text/plain;charset=UTF-8" &&
+				res.headers.get("Autocontenttype-Skip") == undefined
+			) {
 				let contenttype = ""
 				let url = res.url
 				console.log(url)
-				const inferredContentType = "text/html; charset=utf-8"//contentType(extname(new URL(url).pathname))
+				const inferredContentType = "text/html; charset=utf-8" //contentType(extname(new URL(url).pathname))
 				if (inferredContentType != undefined) {
 					contenttype = inferredContentType
 				} else {
@@ -26,7 +29,10 @@ async function middleware(): Promise<webframework.Middleware> {
 				return {
 					output: new Response(res.body, {
 						headers: {
-							...webframework.responseHeaders(res, new Set(["Autocontenttype-Skip"])),
+							...webframework.responseHeaders(
+								res,
+								new Set(["Autocontenttype-Skip"]),
+							),
 							"Content-Type": contenttype,
 						},
 						status: res.status,
