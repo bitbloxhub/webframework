@@ -1,5 +1,4 @@
 import { ConnInfo } from "https://deno.land/std@0.186.0/http/server.ts"
-import * as esbuild from "https://deno.land/x/esbuild@v0.17.18/mod.js"
 import * as webframework from "./webframework.ts"
 
 async function middleware(): Promise<webframework.Middleware> {
@@ -94,12 +93,12 @@ const app: webframework.App = new webframework.App({
 		entryPoints: {
 			"client/anotherexample": "client/anotherexample.ts",
 		},
-		outdir: "esbuild_out",
-		minify: true,
+		minify: false,
 		splitting: true,
+		bundle: true,
 		format: "esm",
 		platform: "browser",
-		target: ["chrome100"],
+		target: ["chrome113"],
 	},
 	servinit: {
 		port: 8909,

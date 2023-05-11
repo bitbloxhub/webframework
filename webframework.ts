@@ -78,7 +78,7 @@ export class App {
 		this.routeroptions = data.routeroptions
 		this.serveinit = data.servinit
 		this.plugins = data.plugins
-		this.esbuildconfig = data.esbuildconfig
+		this.esbuildconfig = {...data.esbuildconfig, outdir: "esbuild_out"}
 	}
 
 	async run() {
